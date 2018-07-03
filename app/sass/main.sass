@@ -1,0 +1,525 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	background: url('../img/main_bg.png')
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+button
+	outline: none!important
+
+b, strong
+	font-weight: bold
+
+/* Задание цвета для заголовков */	
+h1,h2,h3,h4,h5,h6 
+	color: $title-color	
+
+::placeholder
+  font-size: 12px
+  color: rgb(198, 198, 198)
+
+/* Задание ширины для содержимого	 */
+.wrapper
+	width: 980px
+	margin: 0 auto
+
+.header__wrapper
+	width: 980px
+	margin: 0 auto
+
+.header
+	width: 100%
+	height: 96px
+	background: url(../img/header_bg1.png) no-repeat 50% 0% /100% 91px, rgba(53,53,51,.3)
+	color: #fff
+/* Верхний блок с логотипом и навигацией	 */
+.header__top
+	display: flex
+	width: 100%
+	height: 44px	
+	position: relative
+	background: url('../img/header_bg2.png')
+
+/* Акцентный фон слева от лого	 */
+.header__pre
+	height: 100%
+	width: 50%
+	z-index: 2	
+	background-color: $accent
+	position: absolute
+	top: 0
+	left: 0
+
+.header__content
+	width: 100%
+	height: 100%
+	display: flex
+	align-items: center
+
+/* Логотип */
+.header__logo
+	width: 209px
+	height: 100%
+	background-color: $accent
+	font-size: 24px
+	font-weight: 700
+	z-index: 3
+	position: relative
+	&:after
+		content: '+'
+		font-size: 24px
+		position: absolute
+		top: -10px
+		right: 92px
+
+/* Блок навигации */
+.header__navOuter
+	margin-right: 0
+	height: 100%
+	flex-grow: 1
+	z-index: 3
+	background: url('../img/header_bg2.png')
+	position: relative
+
+.header__nav
+	position: absolute
+	height: 100%
+	left: 0
+	top: 0	
+	background: url('../img/header_bg2.png')
+
+.nav__link	
+	font-size: 14px
+	color: #ffffff
+	display: inline-block
+	padding: 9px 0
+	margin-left: 25px
+	&:hover
+		color: #ffffff
+		text-decoration: none
+
+/* Кнопка раскрытия меню */
+.header__navShow 
+	width: 30px
+	height: 30px
+	border: none
+	background-color: transparent
+	padding: 0
+	display: flex
+	justify-content: center
+	cursor: pointer
+	margin-right: 5px
+	display: none
+	span
+		display: block
+		width: 24px	
+		height: 2px	
+		background-color: #fff
+		position: relative
+		transition: background-color 0s ease 0.3s
+		&:after, &:before
+			content: ''
+			position: absolute
+			display: block
+			width: 24px	
+			height: 2px
+			background-color: #fff
+			top: -8px
+			transform: rotate(0deg)
+			transition: transform 0.3s ease, top 0.3s ease 0.3s
+		&:before
+			top: 8px
+			transform: rotate(0deg)
+			transition: transform 0.3s ease, top 0.3s ease 0.3s		
+
+.header__navShow_opened // Создание анимации для кнопки раскрытия меню
+	span
+		background-color: transparent
+		transition: background-color 0s ease 0.3s
+		&:after
+			top: 0
+			transform: rotate(45deg)
+			transition: top 0.3s ease, transform 0.3s ease 0.3s
+		&:before
+			top: 0
+			transform: rotate(-45deg)
+			transition: top 0.3s ease, transform 0.3s ease 0.3s
+
+
+/* Главное содержимое сайта (main и aside) */
+.major
+	height: auto
+	width: 100%
+	padding-top: 23px
+	padding-bottom: 53px
+
+.major__content	
+	display: flex
+	justify-content: space-between
+/* Основной контент */	
+.main	
+	width: 630px
+	height: auto
+	position: relative		
+
+/* Слайдер	 */
+.main__slider
+	width: 100%
+	height: auto
+	border: 1px solid $border-color
+	background-color: #fff
+	position: relative
+	&:before, &:after // Тень по углам снизу слайдера
+		content: ''
+		position: absolute
+		bottom: 15px
+		left: 14px
+		display: block
+		width: 50%
+		height: 20px
+		box-shadow: 0 14px 8px rgba(0,0,0,0.3)
+		transform: rotate(-2deg)
+		z-index: -1	
+	&:after
+		transform: rotate(2deg)	
+		left: auto
+		right: 14px
+
+.slider__img // Слайды
+	display: block
+	width: 100%
+	height: auto
+
+/* Модификация точек-переключателей слайдов	 */	
+.owl-dots
+	position: absolute
+	bottom: 18px
+	left: 276px
+
+.owl-dot
+	background-color: #fff!important
+	border-radius: 50%	
+	margin-left: 6px
+	width: 14px
+	height: 14px
+	&.active
+		background-color: #3c3c3b!important
+
+/* Блок ссылок на социальные сети */
+.main__social
+	position: absolute
+	top: 181px
+	left: 59px
+	display: flex
+	flex-direction: column
+	z-index: 10
+
+.social__link	
+	display: block
+	width: 48px
+	height: 48px
+	border-radius: 50%
+	background-color: $accent	
+	display: flex
+	align-items: center
+	justify-content: center	
+	margin-bottom: 8px
+
+/* Главный блок с описанием */
+.main__block
+	margin-top: 8px
+	border: 1px solid $border-color
+	padding: 33px 0 5px 35px
+	background-color: #fff
+	position: relative
+	width: 100%
+	&:before, &:after
+		content: ''
+		position: absolute
+		display: block
+		width: 98.25%	
+		height: 30px
+		z-index: -1
+		background-color: #fff
+		border: 1px solid $border-color
+		left: 50%
+		transform: translateX(-50%)
+		bottom: -4px
+	&:after
+		width: 96.5%
+		z-index: -2
+		bottom: -7px
+
+.block__title
+	font-size: 30px
+	line-height: 35px
+
+.block__subtitle		
+	margin-top: 30px
+	margin-bottom: 0	
+	font-size: 16px
+	color: $accent
+	padding-left: 1px
+
+.block__text
+	font-size: 14px	
+	margin-top: 8px
+	padding-left: 2px
+	padding-right: 58px
+	line-height: 20px
+	color: rgb(149, 149, 149)
+
+/* Стрелка указатель */	
+.block__arrowOuter
+	position: absolute
+	top: -17px
+	left: 72px
+	z-index: 2
+
+.block__arrowInner
+	width: 0
+	height: 0
+	border-left: 15px solid transparent
+	border-right: 15px solid transparent
+	border-bottom: 17px solid #fff
+	position: relative
+	&:before, &:after
+		content: ''
+		position: absolute
+		display: block
+		width: 22px
+		height: 1px
+		background-color: $border-color
+		top: 8px
+		left: -4px
+		transform: rotate(49deg)	
+	&:after
+		transform: rotate(-49deg)
+		left: -18px
+
+/* Нижний контент	 */
+.main__contents
+	width: 100%
+	display: flex
+	justify-content: space-between
+	padding-left: 10px
+	padding-right: 12px
+	
+.contents__block
+	width: 280px	
+	margin-top: 23px	
+
+.block__img
+	width: 100%
+	height: auto	
+
+/* Модификация стилей блоков контента по сравнению с главным блоком */
+.main__block_cont 
+	margin-top: 5px
+	padding: 35px 36px 20px 36px
+
+.block__title_cont
+	font-size: 16px
+	line-height: 22px
+	left: 30px
+	margin: 0
+
+.block__text_cont
+	padding: 0
+	margin-top: 0
+	font-size: 12px
+	line-height: 1.5
+	margin-top: 10px
+
+/* Aside styles начало */
+.aside
+	width: 327px
+	height: auto
+	background-color: #fff
+	border: 1px solid $border-color
+	margin-top: 2px
+	padding-left: 31px
+	padding-right: 26px
+	position: relative
+	&:before, &:after
+		content: ''
+		position: absolute
+		display: block
+		width: 98.25%	
+		height: 30px
+		z-index: -1
+		background-color: #fff
+		border: 1px solid $border-color
+		left: 50%
+		transform: translateX(-50%)
+		bottom: -4px
+	&:after
+		width: 96.5%
+		z-index: -2
+		bottom: -7px
+
+.as-article
+	margin-top: 31px
+
+.aside__title
+	font-size: 16px
+	line-height: 1.375
+	color: $title-color	
+	margin-bottom: 11px
+
+.as-article__subtitle
+	font-size: 12px
+	color: rgb(174, 174, 174)
+	font-style: italic
+	letter-spacing: 0.04em
+	margin-bottom: 8px
+
+.as-article__text	
+	font-size: 13px
+	line-height: 1.538
+	font-style: italic
+	letter-spacing: 0.03em
+	padding-right: 4px
+
+.subscribe-block
+	margin-top: 27px
+
+.subscribe
+	position: relative
+	margin-top: -3px
+
+.subscribe__input
+	width: 100%	
+	border: 1px solid $border-color
+	border-radius: 3px
+	padding: 16px 12px 15px 12px
+	font-size: 12px
+	box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.07)
+
+.subscribe__button
+	position: absolute
+	right: 7px
+	top: 50%
+	transform: translateY(-21px)
+	border: 1px solid $border-color
+	border-radius: 4px
+	background: linear-gradient( to top, rgb(221,221,221) 0%, rgb(238,238,238) 100%)
+	font-size: 14px
+	color: rgb(85, 85, 85)
+	font-family: "MyriadPro", sans-serif
+	box-shadow: 0 6px 4px -5px rgba(0, 0, 0, .4)
+	padding: 8px 11px 7px 14px
+	letter-spacing: 0.02em
+	cursor: pointer
+
+.subscribe__text
+	font-size: 11px
+	font-style: italic
+	line-height: 1.455
+	color: (58, 58, 58)
+	margin: 0
+	margin-top: 6px
+	padding-left: 3px
+
+#email-modal
+	position: absolute
+	width: 100%
+	min-height: 30px
+	padding: 10px 15px
+	border: 1px solid $border-color
+	border-radius: 5px
+	background-color: #fff
+	bottom: -55px
+	left: 0
+	display: none
+
+
+.interest
+	margin-top: 56px
+	padding-left: 4px
+
+.interest__block
+	margin-top: 14px
+	padding-left: 14px
+
+.interest__text
+	font-size: 12px
+	color: rgb(58,58,58)
+	margin: 0
+	padding-left: 1px
+	position: relative
+	&:before
+		content: '\25ba'
+		position: absolute
+		top: 4px
+		left: -13px
+		font-size: 7px
+
+.interest__date
+	font-size: 10px
+	color: rgb(126,126,126)
+	font-style: italic
+	margin-bottom: 0
+					
+.tags
+	margin-top: 53px
+	.aside__title
+		margin-left: 4px
+
+.tags__blocks
+	margin-left: 2px
+	padding-top: 1px
+
+.tags__link
+	display: inline-block
+	border: 1px solid $border-color
+	border-radius: 4px
+	background: linear-gradient( to top, rgb(221,221,221) 0%, rgb(238,238,238) 100%)
+	font-size: 12px
+	font-weight: 700
+	color: rgb(85, 85, 85)
+	box-shadow: 0 6px 4px -5px rgba(0, 0, 0, .4)
+	padding: 6px 14px 7px 15px
+	margin-right: 3px
+	margin-bottom: 8px
+	&:last-child
+		padding-left: 17px
+		padding-right: 17px
+
+/* Aside styles конец */
+
+@import "media" // Always at the end
+
+

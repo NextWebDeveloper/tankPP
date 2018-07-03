@@ -1,0 +1,110 @@
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+// ≥1200px
++media-breakpoint-down(lg)
+
+// ≥992px
++media-breakpoint-down(md)
+
+// ≥768px
++media-breakpoint-down(sm)
+
+// ≥576px
++media-breakpoint-down(xs)
+
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
++media-breakpoint-up(sm)
+
+// ≤768px
++media-breakpoint-up(md)
+
+// ≤992px
++media-breakpoint-up(lg)
+
+// ≤1200px
++media-breakpoint-up(xl)
+
+
+
+@media only screen and (max-width: 992px)
+	.wrapper
+		max-width: 750px
+
+	.header__wrapper
+		max-width: 750px	
+
+	.header__logo
+		width: 160px
+		padding-left: 10px
+		&:after
+			right: 35px
+
+	.nav__link	
+		margin-left: 20px		
+
+	.major__content
+		flex-direction: column		
+
+	.main
+		width: 100%
+
+	.contents__block
+		width: 49%	
+
+	.aside
+		margin-top: 20px
+		width: 100%
+		padding-bottom: 20px	
+
+@media only screen and (max-width: 750px)
+	.wrapper
+		max-width: 500px
+
+	.header__navShow
+		display: block
+
+	.header__nav
+		height: auto
+		padding-right: 25px
+		padding-bottom: 10px
+		left: auto
+		right: -35px
+		top: 100%
+		display: none
+
+	.nav__link
+		display: block
+		padding: 3px 0	
+
+	.main__social	
+		top: 150px
+		left: 10px
+
+	.social__link	
+		width: 35px
+		height: 35px	
+
+	.owl-dots
+		left: 50%
+		transform: translateX(-50%)	
+
+@media only screen and (max-width: 576px)
+	.wrapper
+		width: 100%
+		padding: 0 15px
+	
+	.main__social	
+		top: 10px
+
+	.main__contents
+		flex-direction: column
+		padding: 0 10px	
+
+	.contents__block
+		width: 100%	
